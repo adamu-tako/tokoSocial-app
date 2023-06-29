@@ -1,8 +1,12 @@
 import axios from "axios";
 
-// const API = axios.create({ baseURL: "http://localhost:5000" });
+
 const API = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: `${
+    window.location.origin === "http://localhost:3000"
+      ? "http://localhost:5000"
+      : "https://dark-gold-cougar-boot.cyclic.app"
+  }`,
 });
 
 API.interceptors.request.use((req) => {
