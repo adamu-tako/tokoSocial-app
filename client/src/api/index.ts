@@ -1,11 +1,16 @@
 import axios from "axios";
 
 
+
+const isProduction = "https://toko-social-app.vercel.app".includes(
+  window.location.origin
+);
+
 const API = axios.create({
   baseURL: `${
-    window.location.origin === "http://localhost:3000"
-      ? "http://localhost:5000"
-      : "https://dark-gold-cougar-boot.cyclic.app"
+    isProduction
+      ? "https://dark-gold-cougar-boot.cyclic.app"
+      : "http://localhost:5000"
   }`,
 });
 
